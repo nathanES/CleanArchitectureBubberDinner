@@ -3,7 +3,7 @@ using BubberDinner.Application.Authentication;
 using BubberDinner.Contracts.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BubberDinner.Api;
+namespace BubberDinner.Api.Controllers;
 
 [ApiController]
 [Route("auth")]
