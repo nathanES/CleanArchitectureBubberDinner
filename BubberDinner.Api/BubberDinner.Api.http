@@ -1,0 +1,23 @@
+@BubberDinner_Api_HostAddress = http://localhost:5171
+
+POST {{BubberDinner_Api_HostAddress}}/auth/register/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "johnDoe@hello.com",
+  "password": "password"
+}
+
+###
+
+POST {{BubberDinner_Api_HostAddress}}/auth/login/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "johnDoe@hello.com",
+  "password": "password"
+}
