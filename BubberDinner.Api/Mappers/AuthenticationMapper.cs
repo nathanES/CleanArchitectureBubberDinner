@@ -1,4 +1,4 @@
-using BubberDinner.Application.Authentication;
+using BubberDinner.Application.Services.Authentication;
 using BubberDinner.Contracts.Authentication;
 
 namespace BubberDinner.Api.Mappers;

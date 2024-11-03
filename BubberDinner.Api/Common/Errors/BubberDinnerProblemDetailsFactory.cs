@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Options;
 
-namespace BubberDinner.Api.Errors;
+namespace BubberDinner.Api.Common.Errors;
 //Copyed from : https://source.dot.net/#Microsoft.AspNetCore.Mvc.Core/Infrastructure/DefaultProblemDetailsFactory.cs,8f9c17fb9ad3e1ff
-//ErrorHandling Number 4. (Link with the Number 3)
+//ErrorHandling Number 4. (Can be used with the Number 3)
 public class BubberDinnerProblemDetailsFactory : ProblemDetailsFactory
 {
     private readonly ApiBehaviorOptions _options;

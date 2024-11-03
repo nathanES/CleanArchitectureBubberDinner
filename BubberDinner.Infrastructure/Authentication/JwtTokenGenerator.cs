@@ -1,8 +1,8 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using BubberDinner.Application.Interfaces.Authentication;
-using BubberDinner.Application.Interfaces.Services;
+using BubberDinner.Application.Common.Interfaces.Authentication;
+using BubberDinner.Application.Common.Interfaces.Services;
 using BubberDinner.Domain.Entities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;

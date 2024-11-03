@@ -1,8 +1,9 @@
-using BubberDinner.Application.Interfaces.Authentication;
-using BubberDinner.Application.Interfaces.Persistence;
+using BubberDinner.Application.Common.Errors;
+using BubberDinner.Application.Common.Interfaces.Authentication;
+using BubberDinner.Application.Common.Interfaces.Persistence;
 using BubberDinner.Domain.Entities;
 
-namespace BubberDinner.Application.Authentication;
+namespace BubberDinner.Application.Services.Authentication;
 
 public class AuthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository)
     : IAuthenticationService
@@ -12,7 +13,7 @@ public class AuthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUserRe
         // 1. Check If user already exists
         if (userRepository.GetUserByEmail(email) is not null)
         {
-            throw new Exception("User already exists");
+            throw new DuplicateEmailException();//1. Flow Control Exception
         }
 
         // 2. Create user(generate unique ID)
