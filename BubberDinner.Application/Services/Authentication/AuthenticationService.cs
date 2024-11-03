@@ -1,19 +1,20 @@
-using BubberDinner.Application.Common.Errors;
 using BubberDinner.Application.Common.Interfaces.Authentication;
 using BubberDinner.Application.Common.Interfaces.Persistence;
+using BubberDinner.Domain.Common.Errors;
 using BubberDinner.Domain.Entities;
+using ErrorOr;
 
 namespace BubberDinner.Application.Services.Authentication;
 
 public class AuthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository)
     : IAuthenticationService
 {
-    public AuthenticationResult Register(string firstName, string lastName, string email, string password)
+    public ErrorOr<AuthenticationResult> Register(string firstName, string lastName, string email, string password)
     {
         // 1. Check If user already exists
         if (userRepository.GetUserByEmail(email) is not null)
         {
-            throw new DuplicateEmailException();//1. Flow Control Exception
+            return Errors.User.DuplicateEmail;
         }
 
         // 2. Create user(generate unique ID)
@@ -33,18 +34,18 @@ public class AuthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUserRe
             token);
     }
 
-    public AuthenticationResult Login(string email, string password)
+    public ErrorOr<AuthenticationResult> Login(string email, string password)
     {
         // 1. Validate the user exists
         if (userRepository.GetUserByEmail(email) is not User user)
         {
-            throw new Exception("User does not exist");
+            return Errors.Authentication.InvalidCredentials;
         }
 
         // 2. Validate the password is correct
         if (user.Password != password)
         {
-            throw new Exception("Password is incorrect");
+            return Errors.Authentication.InvalidCredentials;
         }
 
         // 3. Generate JWT Token
