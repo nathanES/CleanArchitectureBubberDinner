@@ -8,6 +8,8 @@ using MapsterMapper;
 
 namespace BubberDinner.Api.Common.Mapping;
 
+//I prefer to have a manual mapping rather to have a mapping library.
+//Because you are moving errors from compile time to runtime.
 public class AuthenticationMappingConfig : IRegister
 {
     public void Register(TypeAdapterConfig config)

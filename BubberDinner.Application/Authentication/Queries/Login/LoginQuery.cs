@@ -1,6 +1,4 @@
 using BubberDinner.Application.Authentication.Common;
-using MediatR;
-using ErrorOr;
 
 namespace BubberDinner.Application.Authentication.Queries.Login;
 
