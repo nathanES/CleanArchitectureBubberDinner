@@ -13,11 +13,3 @@ Accept: application/json
 
 ###
 
-POST {{BubberDinner_Api_HostAddress}}/auth/login/
-Accept: application/json
-Content-Type: application/json
-
-{
-  "email": "johnDoe@hello.com",
-  "password": "password"
-}

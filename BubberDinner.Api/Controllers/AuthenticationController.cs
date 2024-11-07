@@ -4,12 +4,13 @@ using BubberDinner.Contracts.Authentication;
 using BubberDinner.Domain.Common.Errors;
 using MapsterMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BubberDinner.Api.Controllers;
 
-[ApiController]
 [Route("auth")]
+[AllowAnonymous]
 public class AuthenticationController( ISender mediator, IMapper mapper) : ApiController
 {
     [HttpPost("register")]

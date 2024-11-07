@@ -16,15 +16,15 @@ var app = builder.Build();
     // app.UseMiddleware<ErrorHandlingMiddleware>();
     //ErrorHandling Number 3. (can be used with the Number 3)
     app.UseExceptionHandler("/error");
+    app.UseHttpsRedirection();
+    app.UseAuthentication();
+    app.UseAuthorization();
     app.MapControllers();
+    
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
         app.UseSwaggerUI();
     }
-
-    app.UseHttpsRedirection();
-
-
     app.Run();
 }
